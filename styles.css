@@ -436,3 +436,273 @@ html.dark, body.dark, [data-theme="dark"], body[class*="dark"] {
   animation: chatoutline-pulse 2s ease-out;
   border-radius: 12px;
 }
+
+/* In-Page Sticky Footer Conversion Bar */
+.co-footer-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  background: var(--co-card-bg);
+  border-top: 1px solid var(--co-border);
+}
+
+.co-footer-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: var(--co-bg);
+  border: 1px solid var(--co-border);
+  color: var(--co-text);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.co-footer-btn:hover {
+  background: var(--co-hover);
+  border-color: var(--co-primary);
+  transform: translateY(-1px);
+}
+
+.co-pro-mini {
+  background: #f59e0b;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Toast Message */
+.co-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: rgba(15, 23, 42, 0.95);
+  color: #f8fafc;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 10000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.co-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* High-Converting Native Modal */
+.co-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.co-modal-overlay.co-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.co-modal-box {
+  position: relative;
+  width: 90%;
+  max-width: 440px;
+  background: var(--co-bg);
+  border: 1px solid var(--co-border);
+  border-radius: 20px;
+  padding: 24px 22px 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--co-text);
+  box-sizing: border-box;
+}
+
+.co-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 22px;
+  color: var(--co-muted);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.co-modal-close:hover {
+  color: var(--co-text);
+}
+
+.co-modal-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #10a37f, #0284c7);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.co-modal-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: var(--co-text);
+}
+
+.co-modal-subtitle {
+  font-size: 12px;
+  color: var(--co-muted);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.co-modal-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+  background: var(--co-card-bg);
+  border: 1px solid var(--co-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.co-mf-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.co-mf-icon {
+  font-size: 16px;
+  margin-top: 1px;
+}
+
+.co-mf-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--co-text);
+  margin-bottom: 2px;
+}
+
+.co-mf-desc {
+  font-size: 11px;
+  color: var(--co-muted);
+  line-height: 1.4;
+}
+
+.co-modal-pricing {
+  text-align: center;
+}
+
+.co-pricing-tag {
+  font-size: 13px;
+  color: var(--co-muted);
+  margin-bottom: 10px;
+}
+
+.co-price {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--co-primary);
+}
+
+.co-modal-buy-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #10a37f, #0d8a6a);
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 12px 0;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(16, 163, 127, 0.4);
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.co-modal-buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 163, 127, 0.55);
+}
+
+.co-modal-license-area {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  justify-content: center;
+}
+
+.co-modal-license-input {
+  width: 140px;
+  padding: 6px 8px;
+  font-size: 11px;
+  border: 1px solid var(--co-border);
+  border-radius: 6px;
+  background: var(--co-bg);
+  color: var(--co-text);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.co-modal-license-input:focus {
+  border-color: var(--co-primary);
+}
+
+.co-modal-activate-btn {
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--co-card-bg);
+  border: 1px solid var(--co-border);
+  color: var(--co-text);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.co-modal-activate-btn:hover {
+  background: var(--co-hover);
+  border-color: var(--co-primary);
+}
+
+.co-modal-feedback {
+  font-size: 11px;
+  margin-top: 6px;
+  min-height: 14px;
+}

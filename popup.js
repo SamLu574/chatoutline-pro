@@ -16,10 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (codehubItem) {
         codehubItem.innerText = '✅ Code Hub 代码块归类提取 (已解锁)';
       }
+      const mdItem = document.getElementById('md-status-item');
+      if (mdItem) {
+        mdItem.innerText = '✅ 对话一键导出 Markdown (已解锁)';
+      }
       if (proBox) {
         proBox.innerHTML = `
           <div style="color: #10a37f; font-weight: 700; font-size: 13px; margin-bottom: 4px;">🎉 终身 Pro 授权已生效</div>
-          <div style="color: #94a3b8; font-size: 11px; line-height: 1.4;">您已解锁全量代码集中提取、复制与全部高级特性。</div>
+          <div style="color: #94a3b8; font-size: 11px; line-height: 1.4;">已解锁全对话一键导出 Markdown 与 Code Hub 全部高级特性。</div>
         `;
       }
     } else {

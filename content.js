@@ -1,13 +1,13 @@
 /**
- * ChatOutline - Universal AI Long Conversation Navigator
+ * ChatOutline - Universal AI Long Conversation Navigator & Markdown Exporter
  * Supports: ChatGPT, Claude, Gemini, DeepSeek
- * Freemium Model: Outline 100% Free Forever | Code Hub Pro $3.00 Lifetime
+ * Freemium: Outline 100% Free Forever | Markdown Export & Code Hub Pro $3.00 Lifetime
+ * Version: 1.1.0
  */
 
 (function () {
   'use strict';
 
-  // Prevent multiple injections
   if (window.__chatoutline_initialized__) return;
   window.__chatoutline_initialized__ = true;
 
@@ -47,6 +47,38 @@
         ? 'linear-gradient(135deg, #10a37f, #0284c7)'
         : 'rgba(100, 116, 139, 0.4)';
     }
+    const miniTags = document.querySelectorAll('.co-pro-mini');
+    miniTags.forEach(tag => {
+      tag.style.background = isPro ? '#10a37f' : '#f59e0b';
+      tag.innerText = isPro ? '✓' : 'PRO';
+    });
+  }
+
+  // Toast notification
+  function showToast(msg) {
+    let toast = document.getElementById('co-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'co-toast';
+      toast.className = 'co-toast';
+      document.body.appendChild(toast);
+    }
+    toast.innerText = msg;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2500);
+  }
+
+  // Open / Close High-Converting Pro Modal
+  function toggleProModal(open) {
+    const modal = document.getElementById('co-pro-modal');
+    if (!modal) return;
+    if (open) {
+      modal.classList.remove('co-hidden');
+    } else {
+      modal.classList.add('co-hidden');
+    }
   }
 
   // Initialize UI Elements
@@ -72,29 +104,95 @@
           <span class="co-pro-tag">${isPro ? 'PRO' : 'FREE'}</span>
         </div>
         <div class="co-actions">
-          <button class="co-icon-btn" id="co-refresh-btn" title="Refresh Outline">
+          <button class="co-icon-btn" id="co-refresh-btn" title="刷新大纲">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
           </button>
-          <button class="co-icon-btn" id="co-close-btn" title="Close Panel">
+          <button class="co-icon-btn" id="co-close-btn" title="关闭面板">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
           </button>
         </div>
       </div>
 
       <div class="co-tabs">
-        <div class="co-tab active" data-tab="outline" id="co-tab-outline">📑 Outline</div>
+        <div class="co-tab active" data-tab="outline" id="co-tab-outline">📑 大纲目录</div>
         <div class="co-tab" data-tab="code" id="co-tab-code">💻 Code Hub (<span id="co-code-count">0</span>)</div>
       </div>
 
       <div class="co-search-box">
-        <input type="text" class="co-search-input" id="co-search-input" placeholder="Search prompts & code..." />
+        <input type="text" class="co-search-input" id="co-search-input" placeholder="搜索提问与代码..." />
       </div>
 
       <div class="co-content-body" id="co-content-body">
-        <div class="co-empty-hint">Scanning conversation...</div>
+        <div class="co-empty-hint">正在扫描对话...</div>
+      </div>
+
+      <!-- In-Page Sticky Conversion Toolbar -->
+      <div class="co-footer-bar">
+        <button class="co-footer-btn" id="co-export-md-btn" title="一键导出整篇对话为 Markdown (Obsidian / Notion 格式)">
+          <span class="co-btn-icon">📥</span>
+          <span>导出 Markdown</span>
+          <span class="co-pro-mini">PRO</span>
+        </button>
+        <button class="co-footer-btn" id="co-copy-all-btn" title="一键批量提取当前对话所有代码">
+          <span class="co-btn-icon">📋</span>
+          <span>提取全部代码</span>
+          <span class="co-pro-mini">PRO</span>
+        </button>
       </div>
     `;
     document.body.appendChild(panel);
+
+    // 3. High-Converting Pro Upgrade In-Page Modal
+    const modal = document.createElement('div');
+    modal.id = 'co-pro-modal';
+    modal.className = 'co-modal-overlay co-hidden';
+    modal.innerHTML = `
+      <div class="co-modal-box">
+        <div class="co-modal-close" id="co-modal-close">&times;</div>
+        <div class="co-modal-badge">💎 CHATOUTLINE PRO</div>
+        <div class="co-modal-title">解锁终身专业版 (Lifetime Access)</div>
+        <div class="co-modal-subtitle">长对话深度浏览、高质量 Markdown 导出与代码集中管理必备工具</div>
+        
+        <div class="co-modal-features">
+          <div class="co-mf-item">
+            <div class="co-mf-icon">⚡</div>
+            <div class="co-mf-text">
+              <div class="co-mf-title">全对话一键导出 Markdown</div>
+              <div class="co-mf-desc">结构化保留问答层级、代码高亮与公式，无缝导入 Obsidian / Notion。</div>
+            </div>
+          </div>
+          <div class="co-mf-item">
+            <div class="co-mf-icon">💻</div>
+            <div class="co-mf-text">
+              <div class="co-mf-title">Code Hub 全局代码提取</div>
+              <div class="co-mf-desc">长对话中所有代码块一键批量提取、按语言过滤、一键批量复制。</div>
+            </div>
+          </div>
+          <div class="co-mf-item">
+            <div class="co-mf-icon">🔒</div>
+            <div class="co-mf-text">
+              <div class="co-mf-title">100% 本地隐私安全</div>
+              <div class="co-mf-desc">纯本地前端运行，零外部网络请求，企业与敏感代码安全绝不离网。</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="co-modal-pricing">
+          <div class="co-pricing-tag">仅需 <span class="co-price">$3.00</span> 美元 · 终身买断</div>
+          <a href="https://lusam.gumroad.com/l/chatoutline" target="_blank" class="co-modal-buy-btn" id="co-modal-buy-link">
+            <span>立即获取 Pro 授权 (Gumroad 极速结账)</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <div class="co-modal-license-area">
+            <span style="font-size: 11px; color: var(--co-muted);">已有授权码？</span>
+            <input type="text" class="co-modal-license-input" id="co-modal-license-input" placeholder="输入 License Key 激活..." />
+            <button class="co-modal-activate-btn" id="co-modal-activate-btn">激活</button>
+          </div>
+          <div class="co-modal-feedback" id="co-modal-feedback"></div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
 
     // Bind Event Handlers
     document.getElementById('co-close-btn').addEventListener('click', () => togglePanel(false));
@@ -112,6 +210,47 @@
     document.getElementById('co-search-input').addEventListener('input', (e) => {
       renderContent(e.target.value.trim().toLowerCase());
     });
+
+    // In-Page Toolbar Buttons
+    document.getElementById('co-export-md-btn').addEventListener('click', handleExportMarkdown);
+    document.getElementById('co-copy-all-btn').addEventListener('click', handleCopyAllCode);
+
+    // Modal Close
+    document.getElementById('co-modal-close').addEventListener('click', () => toggleProModal(false));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) toggleProModal(false);
+    });
+
+    // Modal License Activation
+    const actBtn = document.getElementById('co-modal-activate-btn');
+    const actInput = document.getElementById('co-modal-license-input');
+    const actMsg = document.getElementById('co-modal-feedback');
+    if (actBtn && actInput) {
+      actBtn.addEventListener('click', () => {
+        const key = actInput.value.trim();
+        if (!key) {
+          actMsg.style.color = '#ef4444';
+          actMsg.innerText = '请输入有效的授权码';
+          return;
+        }
+        if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
+          chrome.storage.local.set({ '__chatoutline_is_pro__': true }, () => {
+            actMsg.style.color = '#10a37f';
+            actMsg.innerText = '✓ 激活成功！已解锁终身 Pro';
+            setTimeout(() => {
+              isPro = true;
+              updateProBadge();
+              renderContent();
+              toggleProModal(false);
+              showToast('🎉 欢迎使用 ChatOutline Pro！');
+            }, 600);
+          });
+        }
+      });
+      actInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') actBtn.click();
+      });
+    }
 
     // Check stored open state
     if (localStorage.getItem('__chatoutline_open__') === 'true') {
@@ -150,47 +289,22 @@
         const text = node.innerText.trim();
         if (text && !seen.has(text)) {
           seen.add(text);
-          turns.push({ id: turns.length + 1, text, el: node });
+          // Find closest next model-response
+          const parent = node.closest('.conversation-container, .chat-history, main') || document.body;
+          const respNode = node.nextElementSibling || null;
+          const respText = respNode ? respNode.innerText.trim() : '';
+          turns.push({ id: turns.length + 1, text, el: node, response: respText });
         }
       });
 
       const codeNodes = document.querySelectorAll('pre code, code-block, .code-container pre, [class*="code-block"]');
       codeNodes.forEach((node, idx) => {
-        const codeText = node.innerText;
-        codes.push({ id: idx + 1, lang: 'code', text: codeText, el: node });
+        codes.push({ id: idx + 1, lang: 'code', text: node.innerText, el: node });
       });
     }
     // 2. ChatGPT (chatgpt.com / openai.com)
     else if (host.includes('openai.com') || host.includes('chatgpt.com')) {
-      let userNodes = Array.from(document.querySelectorAll('[data-message-author-role="user"]'));
-
-      if (userNodes.length === 0) {
-        const turnContainers = document.querySelectorAll('[data-testid^="conversation-turn-"], article');
-        turnContainers.forEach(container => {
-          const isAssistant = container.querySelector('[data-message-author-role="assistant"]') || 
-                              container.querySelector('.markdown') || 
-                              container.querySelector('[data-testid*="assistant"]');
-          if (!isAssistant) {
-            const textNode = container.querySelector('.whitespace-pre-wrap') || 
-                             container.querySelector('[class*="user"]') || 
-                             container;
-            if (textNode && textNode.innerText.trim()) {
-              userNodes.push(textNode);
-            }
-          }
-        });
-      }
-
-      if (userNodes.length === 0) {
-        const bubbles = document.querySelectorAll('.whitespace-pre-wrap');
-        bubbles.forEach(bubble => {
-          if (!bubble.closest('.markdown') && !bubble.closest('[data-message-author-role="assistant"]')) {
-            if (bubble.innerText.trim()) {
-              userNodes.push(bubble);
-            }
-          }
-        });
-      }
+      const userNodes = Array.from(document.querySelectorAll('[data-message-author-role="user"]'));
 
       const seen = new Set();
       const uniqueUserNodes = [];
@@ -203,15 +317,22 @@
       });
 
       uniqueUserNodes.forEach((node, idx) => {
-        turns.push({ id: idx + 1, text: node.innerText.trim(), el: node });
+        // Try finding next assistant response
+        let respText = '';
+        const turnContainer = node.closest('[data-testid^="conversation-turn-"]') || node.parentElement;
+        if (turnContainer && turnContainer.nextElementSibling) {
+          const asstNode = turnContainer.nextElementSibling.querySelector('[data-message-author-role="assistant"]') || 
+                           turnContainer.nextElementSibling.querySelector('.markdown');
+          if (asstNode) respText = asstNode.innerText.trim();
+        }
+        turns.push({ id: idx + 1, text: node.innerText.trim(), el: node, response: respText });
       });
 
       const codeNodes = document.querySelectorAll('pre code');
       codeNodes.forEach((node, idx) => {
         const langClass = Array.from(node.classList).find(c => c.startsWith('language-'));
         const lang = langClass ? langClass.replace('language-', '') : 'code';
-        const codeText = node.innerText;
-        codes.push({ id: idx + 1, lang, text: codeText, el: node });
+        codes.push({ id: idx + 1, lang, text: node.innerText, el: node });
       });
     }
     // 3. Claude.ai
@@ -220,7 +341,13 @@
       userNodes.forEach((node, idx) => {
         const text = node.innerText.trim();
         if (text) {
-          turns.push({ id: idx + 1, text, el: node });
+          let respText = '';
+          const container = node.closest('[data-testid^="chat-turn-"]') || node.parentElement;
+          if (container && container.nextElementSibling) {
+            const asstNode = container.nextElementSibling.querySelector('.font-claude-message, [data-testid="assistant-message"]');
+            if (asstNode) respText = asstNode.innerText.trim();
+          }
+          turns.push({ id: idx + 1, text, el: node, response: respText });
         }
       });
 
@@ -236,7 +363,7 @@
       possibleUsers.forEach((node, idx) => {
         const text = node.innerText.trim();
         if (text) {
-          turns.push({ id: idx + 1, text, el: node });
+          turns.push({ id: idx + 1, text, el: node, response: '' });
         }
       });
 
@@ -259,6 +386,62 @@
     renderContent();
   }
 
+  // Export to Markdown Execution
+  function handleExportMarkdown() {
+    if (!isPro) {
+      toggleProModal(true);
+      return;
+    }
+    if (cachedTurns.length === 0) {
+      showToast('⚠️ 当前页面暂无提问对话可导出');
+      return;
+    }
+
+    const title = (document.title || 'AI_Conversation')
+      .replace(/\s*[-–|].*$/, '')
+      .trim() || 'AI_Conversation';
+
+    let md = `# ${title}\n\n`;
+    md += `> 📅 导出时间: ${new Date().toLocaleString()}\n`;
+    md += `> 🚀 工具引擎: [ChatOutline Pro](https://lusam.gumroad.com/l/chatoutline) (Freemium)\n\n---\n\n`;
+
+    cachedTurns.forEach((turn, idx) => {
+      md += `### 👤 提问 #${idx + 1}\n\n${turn.text}\n\n`;
+      if (turn.response) {
+        md += `### 🤖 回答 #${idx + 1}\n\n${turn.response}\n\n---\n\n`;
+      }
+    });
+
+    const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${title.replace(/[/\\?%*:|"<>]/g, '_')}_export.md`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    showToast('✓ 已成功导出为 Markdown 文件！');
+  }
+
+  // Batch Copy All Code Execution
+  function handleCopyAllCode() {
+    if (!isPro) {
+      toggleProModal(true);
+      return;
+    }
+    if (cachedCodes.length === 0) {
+      showToast('⚠️ 当前对话暂未提取到代码块');
+      return;
+    }
+
+    const allCode = cachedCodes.map((c, i) => `// ================================\n// Code Block #${i+1} [${c.lang}]\n// ================================\n${c.text}`).join('\n\n\n');
+    navigator.clipboard.writeText(allCode).then(() => {
+      showToast(`✓ 已成功复制全部 ${cachedCodes.length} 处代码到剪贴板！`);
+    });
+  }
+
   // Render UI Content
   function renderContent(query = '') {
     const container = document.getElementById('co-content-body');
@@ -268,7 +451,7 @@
     if (currentTab === 'outline') {
       const filtered = query ? cachedTurns.filter(t => t.text.toLowerCase().includes(query)) : cachedTurns;
       if (filtered.length === 0) {
-        container.innerHTML = `<div class="co-empty-hint">${cachedTurns.length === 0 ? 'No user turns found yet. Start chatting!' : 'No matching prompts found.'}</div>`;
+        container.innerHTML = `<div class="co-empty-hint">${cachedTurns.length === 0 ? '暂未检测到对话。开始发送消息吧！' : '未找到匹配的提问内容。'}</div>`;
         return;
       }
 
@@ -301,30 +484,31 @@
           <div class="co-code-card">
             <div class="co-code-header">
               <span class="co-code-lang">${escapeHtml(item.lang)}</span>
-              <button class="co-copy-btn" data-code="${encodeURIComponent(item.text)}">Copy</button>
+              <button class="co-copy-btn" data-code="${encodeURIComponent(item.text)}">复制</button>
             </div>
             <div class="co-code-preview">${escapeHtml(item.text.split('\n')[0] || '// Empty')}</div>
           </div>
         `).join('');
       }
 
-      // If not unlocked, display Pro upgrade card below preview
-      if (!isPro) {
+      // If not Pro, display Pro banner in Code Hub
+      if (!isPro && filtered.length > 0) {
         html += `
           <div class="co-pro-card">
-            <div class="co-pro-card-title">💎 解锁 Code Hub Pro</div>
-            <div class="co-pro-card-desc">检测到当前对话共 ${cachedCodes.length} 处代码。仅需 $3.00 美元买断，终身无限提取与一键复制代码。</div>
-            <a href="https://lusam.gumroad.com/l/chatoutline" target="_blank" class="co-pro-buy-btn">获取 Pro 授权 ($3.00)</a>
-            <div class="co-license-row">
-              <input type="text" class="co-license-input" id="co-in-license" placeholder="输入授权码..." />
-              <button class="co-license-btn" id="co-in-activate">激活</button>
-            </div>
-            <div class="co-license-msg" id="co-in-msg"></div>
+            <div class="co-pro-card-title">💎 解锁 Code Hub 完整提取</div>
+            <div class="co-pro-card-desc">当前对话共有 <strong>${cachedCodes.length}</strong> 处代码块。升级 Pro 即可一键批量导出或合并复制全部代码。</div>
+            <button class="co-pro-buy-btn" id="co-trigger-modal-btn">获取 Pro 终身授权 ($3.00)</button>
           </div>
         `;
       }
 
       container.innerHTML = html;
+
+      // Bind trigger modal button
+      const trigBtn = document.getElementById('co-trigger-modal-btn');
+      if (trigBtn) {
+        trigBtn.addEventListener('click', () => toggleProModal(true));
+      }
 
       // Bind copy buttons
       container.querySelectorAll('.co-copy-btn').forEach(btn => {
@@ -333,7 +517,7 @@
           const code = decodeURIComponent(btn.getAttribute('data-code'));
           navigator.clipboard.writeText(code).then(() => {
             const original = btn.innerText;
-            btn.innerText = 'Copied!';
+            btn.innerText = '已复制!';
             btn.style.borderColor = '#10a37f';
             setTimeout(() => {
               btn.innerText = original;
@@ -342,42 +526,6 @@
           });
         });
       });
-
-      // Bind inline Pro activation
-      const inBtn = document.getElementById('co-in-activate');
-      const inInput = document.getElementById('co-in-license');
-      const inMsg = document.getElementById('co-in-msg');
-      if (inBtn && inInput) {
-        inBtn.addEventListener('click', () => {
-          const key = inInput.value.trim();
-          if (!key) {
-            if (inMsg) {
-              inMsg.style.color = '#ef4444';
-              inMsg.innerText = '请输入授权码';
-            }
-            return;
-          }
-          if (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) {
-            chrome.storage.local.set({ '__chatoutline_is_pro__': true }, () => {
-              if (inMsg) {
-                inMsg.style.color = '#10a37f';
-                inMsg.innerText = '✓ 激活成功！已解锁终身 Pro';
-              }
-              setTimeout(() => {
-                isPro = true;
-                updateProBadge();
-                renderContent();
-              }, 500);
-            });
-          }
-        });
-
-        inInput.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') {
-            inBtn.click();
-          }
-        });
-      }
     }
   }
 

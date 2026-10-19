@@ -6,7 +6,7 @@
   <title>ChatOutline</title>
   <style>
     body {
-      width: 280px;
+      width: 300px;
       margin: 0;
       padding: 16px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -64,7 +64,7 @@
       font-size: 11px;
     }
     .feature-list li {
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
     .pro-box {
       background: linear-gradient(135deg, rgba(16, 163, 127, 0.15), rgba(2, 132, 199, 0.15));
@@ -93,7 +93,7 @@
       background: #10a37f;
       color: #fff;
       text-decoration: none;
-      padding: 7px 0;
+      padding: 8px 0;
       border-radius: 6px;
       font-size: 12px;
       font-weight: 700;
@@ -111,7 +111,7 @@
     }
     .license-input {
       flex: 1;
-      padding: 5px 8px;
+      padding: 6px 8px;
       font-size: 11px;
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 6px;
@@ -121,7 +121,7 @@
       box-sizing: border-box;
     }
     .license-btn {
-      padding: 5px 10px;
+      padding: 6px 10px;
       font-size: 11px;
       font-weight: 600;
       background: rgba(255, 255, 255, 0.1);
@@ -165,22 +165,23 @@
 
   <div class="status-card">
     <div style="font-weight: 600; margin-bottom: 2px;">
-      <span class="status-dot"></span>扩展运行中
+      <span class="status-dot"></span>扩展已就绪
     </div>
     <div style="color: #94a3b8; font-size: 11px;">
-      已支持 ChatGPT / Gemini / Claude / DeepSeek
+      支持 ChatGPT / Claude / Gemini / DeepSeek
     </div>
     <ul class="feature-list">
       <li>✅ 问答大纲目录与顺滑跳转 (永久免费)</li>
       <li>✅ 全文关键词快速过滤 (永久免费)</li>
-      <li id="codehub-status-item">💎 Code Hub 代码块归类提取 (Pro)</li>
+      <li id="md-status-item">📥 对话一键导出 Markdown (Pro)</li>
+      <li id="codehub-status-item">💎 Code Hub 全文代码集中提取 (Pro)</li>
     </ul>
   </div>
 
   <div class="pro-box" id="pro-box">
-    <div class="pro-title">💎 解锁 ChatOutline Pro</div>
-    <div class="pro-desc">$3.00 美元买断，终身解锁 Code Hub 完整代码提取与高级功能</div>
-    <a href="https://lusam.gumroad.com/l/chatoutline" target="_blank" class="buy-btn" id="buy-btn">获取 Pro 授权 ($3.00)</a>
+    <div class="pro-title">💎 解锁 ChatOutline Pro 终身版</div>
+    <div class="pro-desc">$3.00 美元终身买断，解锁 Markdown 一键导出与全量代码提取</div>
+    <a href="https://lusam.gumroad.com/l/chatoutline" target="_blank" class="buy-btn" id="buy-btn">获取 Pro 终身授权 ($3.00)</a>
     <div class="license-row">
       <input type="text" class="license-input" id="license-input" placeholder="输入授权码激活..." />
       <button class="license-btn" id="activate-btn">激活</button>
@@ -189,7 +190,7 @@
   </div>
 
   <div class="footer">
-    <span>v1.0.0</span>
+    <span>v1.1.0</span>
     <a href="https://github.com/SamLu574/chatoutline-pro" target="_blank">GitHub</a>
   </div>
 

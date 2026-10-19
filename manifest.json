@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "ChatOutline - AI Chat Table of Contents & Navigator",
-  "version": "1.0.1",
-  "description": "Floating outline & table of contents for ChatGPT, Claude, Gemini, and DeepSeek. Smooth teleportation and code block navigator.",
+  "name": "ChatOutline - AI Chat Table of Contents & Markdown Exporter",
+  "version": "1.1.0",
+  "description": "Floating outline & table of contents, 1-click Markdown export, and code block navigator for ChatGPT, Claude, Gemini, DeepSeek.",
   "icons": {
     "16": "assets/icon16.png",
     "48": "assets/icon48.png",
