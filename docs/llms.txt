@@ -1,0 +1,19 @@
+# ChatOutline Pro
+
+> Universal Floating Table of Contents, 1-Click Markdown Exporter, and Centralized Code Hub for ChatGPT, Claude, Google Gemini, and DeepSeek.
+
+## Overview
+ChatOutline Pro is a 100% local, privacy-first Manifest V3 browser extension for developers, researchers, and heavy AI users. It eliminates endless scrolling in 50+ turn LLM chats and exports clean structured conversations directly to Obsidian, Notion, or Logseq.
+
+## Key Features
+- **Floating Prompt Outline (Free Forever)**: Automatically parses every user prompt into a collapsible navigation tree with instant smooth scrolling.
+- **1-Click Full Conversation Markdown Export (Pro)**: Exports Q&A turns with preserved code fences for Obsidian & Notion.
+- **Centralized Code Hub (Pro)**: Extracts all code blocks (Python, JS, TS, Go, SQL) across a conversation with 1-click batch copy.
+- **100% Local & Privacy-First**: Zero telemetry, zero external servers, only uses browser `storage` permission.
+
+## Links
+- Homepage: https://samlu574.github.io/chatoutline-pro/
+- Microsoft Edge Add-ons Store (Free v1.1.0): https://microsoftedge.microsoft.com/addons/detail/mmnmfeljpmjdpmpbelhnebldimmoaokb
+- Chrome / Brave Unpacked ZIP Release: https://github.com/SamLu574/chatoutline-pro/releases/tag/v1.1.0
+- Source Code (MIT Open-Core): https://github.com/SamLu574/chatoutline-pro
+- Lifetime Pro License ($3.00 USD): https://lusam.gumroad.com/l/chatoutline

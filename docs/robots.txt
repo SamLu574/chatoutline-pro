@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://samlu574.github.io/chatoutline-pro/sitemap.xml
