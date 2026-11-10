@@ -1,89 +1,71 @@
 # ChatOutline Pro 📑
 
-> **Universal Floating Table of Contents, 1-Click Markdown Exporter & Code Hub for AI Chats (ChatGPT, Claude, Gemini, DeepSeek).**  
-> *Never scroll endlessly to find past prompts, buried code blocks, or lose your conversation history again.*
+**Universal Floating Table of Contents, 1-Click Markdown Exporter & Code Hub for ChatGPT, Claude, Google Gemini & DeepSeek.**  
+Never scroll endlessly through 50+ message AI chats or lose track of buried code blocks again. Export clean conversations straight to **Obsidian** or **Notion** with 100% local, zero-telemetry execution.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Manifest V3](https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-blue.svg)](https://developer.chrome.com/docs/extensions/mv3/intro/)
-[![Get ChatOutline Pro](https://img.shields.io/badge/Get%20Pro-%243.00%20Lifetime-10a37f?style=for-the-badge&logo=gumroad)](https://lusam.gumroad.com/l/chatoutline)
+[![Install on Microsoft Edge Add-ons](https://img.shields.io/badge/Microsoft%20Edge%20Add--ons-Install%20v1.1.0%20Free-0078D7?style=for-the-badge&logo=microsoftedge&logoColor=white)](https://microsoftedge.microsoft.com/addons/detail/mmnmfeljpmjdpmpbelhnebldimmoaokb)
+[![Download ZIP Release](https://img.shields.io/badge/GitHub%20Release-Download%20ZIP%20(Chrome%20/%20Brave)-24292F?style=for-the-badge&logo=github)](https://github.com/SamLu574/chatoutline-pro/releases/tag/v1.1.0)
+[![Get ChatOutline Pro](https://img.shields.io/badge/Unlock%20Pro-%243.00%20Lifetime-10a37f?style=for-the-badge&logo=gumroad&logoColor=white)](https://lusam.gumroad.com/l/chatoutline)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
----
-
-## ⚡ The Problem
-
-When working with modern LLMs (ChatGPT, Claude 3.7, DeepSeek R1, Google Gemini) on serious coding and research projects:
-- Conversations easily grow to **30 to 100+ turns** with thousands of lines of code.
-- Finding a prompt you asked 45 minutes ago requires **violently scrolling the mouse wheel for dozens of pages**, causing browser tabs to freeze and lag.
-- Exporting your chat to your personal second-brain (**Obsidian / Notion**) requires painful manual copy-pasting that breaks code blocks and math formatting.
-- Native web interfaces offer **zero table of contents, zero message jump bookmarks, and zero unified code extraction**.
+<p align="center">
+  <img src="assets/preview.svg" alt="ChatOutline Pro Floating Table of Contents and Code Hub Preview" width="840" />
+</p>
 
 ---
 
-## ✨ Features
+## ⚡ Why Install ChatOutline?
 
-- **🎯 Instant Teleportation**: Floating minimalist outline tree extracting every user prompt. Click any turn to smoothly jump directly to it with a subtle pulse highlight.
-- **📥 1-Click Markdown Export (Pro)**: Export your entire deep conversation into clean, structured Markdown format ready for Obsidian, Notion, or Logseq, perfectly preserving code blocks and Q&A hierarchy.
-- **💻 Centralized Code Hub (Pro)**: Automatically extracts all code blocks (`Python`, `Go`, `C++`, `SQL`, `JavaScript`, etc.) across the conversation into an organized side drawer with 1-click batch copy.
-- **🔍 Real-Time Fuzzy Filter**: Type a keyword to instantly filter prompt topics and code snippets across virtualized DOM nodes.
-- **🛡️ Anti-Breakage Architecture**: Built with semantic mutation observers instead of fragile CSS classes, ensuring resilience against frequent OpenAI/Anthropic UI layout changes.
-- **🔒 100% Local & Privacy First**: Pure client-side JavaScript. Zero external analytics, zero tracking, zero third-party servers. Your business logic and proprietary prompts never leave your machine.
+When coding or researching with **ChatGPT, Claude, DeepSeek, or Gemini**:
+- Conversations quickly hit **40 to 100+ turns** with thousands of lines of generated code.
+- Finding a prompt from 30 minutes ago means furiously flicking the mouse wheel while heavy chat DOM lags.
+- Copying multi-turn discussions into **Obsidian, Notion, or Logseq** breaks Markdown fences and takes tedious manual cleanup.
 
----
-
-## 🚀 Supported Platforms
-
-| Platform | URL Pattern | Status |
-| :--- | :--- | :---: |
-| **ChatGPT** | `chatgpt.com`, `chat.openai.com` | ✅ Fully Supported |
-| **Claude** | `claude.ai` | ✅ Fully Supported |
-| **Google Gemini** | `gemini.google.com` | ✅ Fully Supported |
-| **DeepSeek** | `chat.deepseek.com` | ✅ Fully Supported |
+**ChatOutline fixes all of this in under 15ms — 100% locally inside your browser.**
 
 ---
 
-## 💎 Free (Community) vs Pro Tier
+## 🚀 1-Minute Installation
 
-| Feature | Free (Open Core) | Pro ($3.00 Lifetime License) |
+### Option 1: One-Click Install (Microsoft Edge)
+👉 **[Install directly from Microsoft Edge Add-ons Store (v1.1.0 Free)](https://microsoftedge.microsoft.com/addons/detail/mmnmfeljpmjdpmpbelhnebldimmoaokb)**
+
+### Option 2: Chrome / Brave / Arc / Vivaldi (Load Unpacked ZIP)
+1. Download [`chatoutline-pro-v1.1.0.zip`](https://github.com/SamLu574/chatoutline-pro/releases/tag/v1.1.0) and unzip it.
+2. Open `chrome://extensions/` (or `brave://extensions/`) and toggle **Developer mode** ON.
+3. Click **Load unpacked** and select the extracted folder.
+4. Open [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai), [Gemini](https://gemini.google.com), or [DeepSeek](https://chat.deepseek.com) to see the floating **`📑 Outline`** pill!
+
+---
+
+## ✨ Key Features & Tiers
+
+| Feature | Free (Open Core) | Pro ($3.00 Lifetime) |
 | :--- | :---: | :---: |
-| Floating Prompt Outline & Instant Teleportation | ✅ Unlimited Free | ✅ Unlimited Lifetime |
-| Multi-Platform Support (ChatGPT / Gemini / Claude / DeepSeek) | ✅ Unlimited Free | ✅ Unlimited Lifetime |
-| Real-time Keyword Search & Filtering | ✅ Unlimited Free | ✅ Unlimited Lifetime |
-| Code Hub Code Extraction | 2 Preview Blocks | **✅ Unlimited All Blocks** |
-| **Batch 1-Click Copy All Code Blocks** | ❌ | **✅ Unlimited Lifetime** |
-| **1-Click Full Conversation Export to Markdown** | ❌ | **✅ Unlimited Lifetime** |
-| **Future Feature Updates & Pro Support** | ❌ | **✅ Lifetime Free Updates** |
+| Floating Conversation Table of Contents (TOC) | ✅ Unlimited Free | ✅ Unlimited Lifetime |
+| Instant Smooth Teleportation & Highlight | ✅ Unlimited Free | ✅ Unlimited Lifetime |
+| Real-time Fuzzy Filter Across Prompts | ✅ Unlimited Free | ✅ Unlimited Lifetime |
+| Supported Sites (ChatGPT, Claude, Gemini, DeepSeek) | ✅ All 4 Platforms | ✅ All 4 Platforms |
+| Code Hub Code Block Extraction | 2 Preview Blocks | **✅ Unlimited All Code Blocks** |
+| **1-Click Batch Copy All Code Blocks** | ❌ | **✅ Included** |
+| **1-Click Export Full Chat to Markdown (Obsidian/Notion)** | ❌ | **✅ Included** |
+| **Lifetime Updates (One-Time Payment)** | ❌ | **✅ Included** |
 
-👉 **[Get Pro Lifetime License on Gumroad ($3.00 USD)](https://lusam.gumroad.com/l/chatoutline)** *(Instant digital activation key)*
-
----
-
-## 🛠️ Quick Installation (Developer Mode - 1 Minute)
-
-1. Clone or download this repository:
-   ```bash
-   git clone https://github.com/SamLu574/chatoutline-pro.git
-   ```
-   *(Or download and extract the ZIP release)*.
-
-2. Open your browser and navigate to:
-   * **Chrome**: `chrome://extensions/`
-   * **Edge**: `edge://extensions/`
-   * **Brave**: `brave://extensions/`
-
-3. Turn on **Developer mode** (toggle switch in the top-right corner).
-
-4. Click **Load unpacked** (加载已解压的扩展程序) in the top-left, and select the `chatoutline-pro` folder.
-
-5. Open [ChatGPT](https://chatgpt.com) or [Claude](https://claude.ai), and you will see the floating **`📑 Outline`** pill button on the right side!
+👉 **[Unlock Lifetime Pro License ($3.00 USD on Gumroad)](https://lusam.gumroad.com/l/chatoutline)** *(No subscription — pay once, use forever)*
 
 ---
 
-## 🔒 Privacy Guarantee
+## 🔒 Privacy & Architecture
 
-ChatOutline Pro does **NOT** collect, transmit, or store your prompts, code, or personal data on external servers. All outline parsing and DOM operations happen strictly within your local browser session.
+- **100% Client-Side Execution**: No external servers, no telemetry, no analytics scripts, and zero prompt data leaving your browser.
+- **Anti-Breakage DOM Observers**: Uses semantic attributes (`data-message-author-role`, semantic containers, debounced `MutationObserver`) instead of brittle Tailwind class hashes.
+- **Minimal Permissions**: Only requests `storage` to save your local UI state and Pro license status.
 
 ---
 
-## 📄 License
+## 🌐 Links
 
-This project is licensed under the [MIT License](LICENSE) © 2026 Guoqiang Lu.
+- **Landing Page & Docs**: [https://samlu574.github.io/chatoutline-pro/](https://samlu574.github.io/chatoutline-pro/)
+- **Microsoft Edge Add-ons**: [Edge Store Listing](https://microsoftedge.microsoft.com/addons/detail/mmnmfeljpmjdpmpbelhnebldimmoaokb)
+- **Lifetime Pro License**: [Gumroad Checkout ($3.00)](https://lusam.gumroad.com/l/chatoutline)
+- **License**: [MIT License](LICENSE) © 2026 Guoqiang Lu

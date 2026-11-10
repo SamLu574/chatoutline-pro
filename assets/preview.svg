@@ -1,0 +1,64 @@
+<svg width="900" height="440" viewBox="0 0 900 440" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="440" rx="16" fill="#0F172A"/>
+  <rect x="20" y="20" width="860" height="400" rx="12" fill="#111827" stroke="#1E293B" stroke-width="2"/>
+  <!-- Top Window Bar -->
+  <rect x="20" y="20" width="860" height="40" rx="12" fill="#1E293B"/>
+  <circle cx="46" cy="40" r="6" fill="#EF4444"/>
+  <circle cx="68" cy="40" r="6" fill="#F59E0B"/>
+  <circle cx="90" cy="40" r="6" fill="#10B981"/>
+  <rect x="240" y="29" width="420" height="22" rx="11" fill="#0F172A"/>
+  <text x="450" y="44" fill="#94A3B8" font-family="Segoe UI, Arial, sans-serif" font-size="12" text-anchor="middle">chatgpt.com / claude.ai / gemini.google.com / chat.deepseek.com</text>
+
+  <!-- Main Chat Area -->
+  <rect x="44" y="84" width="500" height="58" rx="10" fill="#1E293B"/>
+  <text x="64" y="108" fill="#38BDF8" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold">#1 User Prompt</text>
+  <text x="64" y="128" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="13">How do we optimize PostgreSQL indexes for 50M rows?</text>
+
+  <rect x="44" y="156" width="500" height="84" rx="10" fill="#0B1220" stroke="#1E293B"/>
+  <text x="64" y="180" fill="#10A37F" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold">Assistant Response + SQL Code Block</text>
+  <rect x="64" y="192" width="460" height="34" rx="6" fill="#1E293B"/>
+  <text x="76" y="213" fill="#A5F3FC" font-family="Consolas, monospace" font-size="12">CREATE INDEX CONCURRENTLY idx_orders_user_ts ON orders (user_id, created_at DESC);</text>
+
+  <rect x="44" y="256" width="500" height="58" rx="10" fill="#1E293B"/>
+  <text x="64" y="280" fill="#38BDF8" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold">#2 User Prompt</text>
+  <text x="64" y="300" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="13">Now refactor the Go repository layer with context timeout...</text>
+
+  <rect x="44" y="328" width="500" height="68" rx="10" fill="#0B1220" stroke="#1E293B"/>
+  <text x="64" y="352" fill="#10A37F" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold">Assistant Response + Go Code Block</text>
+  <text x="64" y="376" fill="#64748B" font-family="Segoe UI, Arial, sans-serif" font-size="12">Click any item in the Outline sidebar to jump smoothly &amp; highlight target turn.</text>
+
+  <!-- ChatOutline Floating Sidebar -->
+  <rect x="572" y="76" width="286" height="324" rx="12" fill="#0F172A" stroke="#10A37F" stroke-width="2"/>
+  <text x="592" y="104" fill="#F8FAFC" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="bold">📑 ChatOutline</text>
+  <rect x="706" y="88" width="44" height="20" rx="5" fill="#10A37F"/>
+  <text x="728" y="102" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle">v1.1.0</text>
+
+  <!-- Tabs -->
+  <rect x="590" y="118" width="122" height="28" rx="6" fill="#10A37F"/>
+  <text x="651" y="136" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">Outline TOC</text>
+  <rect x="718" y="118" width="122" height="28" rx="6" fill="#1E293B"/>
+  <text x="779" y="136" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="11" text-anchor="middle">Code Hub (12)</text>
+
+  <!-- Search -->
+  <rect x="590" y="156" width="250" height="26" rx="6" fill="#1E293B" stroke="#334155"/>
+  <text x="602" y="173" fill="#64748B" font-family="Segoe UI, Arial, sans-serif" font-size="11">Filter prompts &amp; code...</text>
+
+  <!-- Outline Items -->
+  <rect x="590" y="192" width="250" height="34" rx="6" fill="#1E293B" stroke="#38BDF8" stroke-width="1"/>
+  <text x="600" y="213" fill="#F8FAFC" font-family="Segoe UI, Arial, sans-serif" font-size="11">#1 Optimize PostgreSQL indexes</text>
+
+  <rect x="590" y="232" width="250" height="34" rx="6" fill="#1E293B"/>
+  <text x="600" y="253" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="11">#2 Refactor Go repository layer</text>
+
+  <rect x="590" y="272" width="250" height="34" rx="6" fill="#1E293B"/>
+  <text x="600" y="293" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="11">#3 Add Redis cache invalidation</text>
+
+  <rect x="590" y="312" width="250" height="28" rx="6" fill="#1E293B"/>
+  <text x="600" y="330" fill="#94A3B8" font-family="Segoe UI, Arial, sans-serif" font-size="11">#4 Write table-driven Go unit tests</text>
+
+  <!-- Bottom Sticky Conversion Bar -->
+  <rect x="590" y="350" width="121" height="34" rx="7" fill="#0284C7"/>
+  <text x="650" y="371" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📥 Export MD</text>
+  <rect x="719" y="350" width="121" height="34" rx="7" fill="#10A37F"/>
+  <text x="779" y="371" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle">📋 Copy Code</text>
+</svg>

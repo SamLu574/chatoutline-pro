@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatOutline Pro — Floating Table of Contents &amp; Markdown Exporter for ChatGPT, Claude, Gemini &amp; DeepSeek</title>
+  <meta name="description" content="Stop endless scrolling in long AI conversations. ChatOutline adds an instant floating Table of Contents, 1-click Markdown export for Obsidian/Notion, and a centralized Code Hub for ChatGPT, Claude, Gemini, and DeepSeek. 100% local &amp; privacy-first." />
+  <meta name="keywords" content="ChatGPT table of contents, ChatGPT outline extension, Claude navigator, export ChatGPT to Markdown, Obsidian AI chat export, DeepSeek Chrome extension, Gemini outline sidebar" />
+  <meta property="og:title" content="ChatOutline Pro — AI Chat Outline, Markdown Exporter &amp; Code Hub" />
+  <meta property="og:description" content="Navigate 100+ turn ChatGPT, Claude, Gemini &amp; DeepSeek threads in milliseconds. Free open-core outline + $3.00 lifetime Markdown &amp; Code Hub Pro." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://samlu574.github.io/chatoutline-pro/" />
+  <link rel="canonical" href="https://samlu574.github.io/chatoutline-pro/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ChatOutline Pro",
+    "operatingSystem": "Windows, macOS, Linux (Edge, Chrome, Brave)",
+    "applicationCategory": "BrowserApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "3.00",
+      "priceCurrency": "USD"
+    },
+    "url": "https://samlu574.github.io/chatoutline-pro/",
+    "downloadUrl": "https://microsoftedge.microsoft.com/addons/detail/mmnmfeljpmjdpmpbelhnebldimmoaokb"
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --surface: #111827;
+      --border: #1e293b;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #10a37f;
+      --blue: #0ea5e9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top center, #112240 0%, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 48px 20px 80px; }
+    .pill {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(16, 163, 127, 0.14);
+      border: 1px solid rgba(16, 163, 127, 0.4);
+      color: #34d399;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+    }
+    .sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 0 28px;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); opacity: 0.95; }
+    .btn-primary { background: #0078d7; color: #fff; }
+    .btn-pro { background: linear-gradient(135deg, #10a37f, #0284c7); color: #fff; }
+    .btn-ghost { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    .preview-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 48px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    }
+    .preview-card img { width: 100%; height: auto; border-radius: 10px; display: block; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 48px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .pricing {
+      background: linear-gradient(135deg, rgba(16, 163, 127, 0.12), rgba(14, 165, 233, 0.12));
+      border: 1px solid rgba(16, 163, 127, 0.35);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+    .pricing h2 { margin: 0 0 8px; }
+    .pricing p { margin: 0; color: var(--muted); }
+    footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: #64748b;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <span class="pill">v1.1.0 Live • 100% Local &amp; Zero Telemetry • Manifest V3</span>
+    <h1>Stop Endless Scrolling in ChatGPT, Claude, Gemini &amp; DeepSeek.</h1>
+    <p class="sub">
+      ChatOutline injects an instant floating <strong>Table of Contents</strong>, a <strong>1-click Markdown Exporter</strong> for Obsidian &amp; Notion, and a centralized <strong>Code Hub</strong> directly into your AI workspace.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://microsoftedge.microsoft.com/addons/detail/mmnmfeljpmjdpmpbelhnebldimmoaokb" target="_blank" rel="noopener">Install on Microsoft Edge (Free)</a>
+      <a class="btn btn-pro" href="https://lusam.gumroad.com/l/chatoutline" target="_blank" rel="noopener">Unlock Lifetime Pro — $3.00 USD</a>
+      <a class="btn btn-ghost" href="https://github.com/SamLu574/chatoutline-pro/releases/tag/v1.1.0" target="_blank" rel="noopener">Chrome / Brave ZIP (v1.1.0)</a>
+    </div>
+
+    <div class="preview-card">
+      <img src="https://raw.githubusercontent.com/SamLu574/chatoutline-pro/main/assets/preview.svg" alt="ChatOutline Pro UI Preview" />
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>📑 Floating Prompt Outline</h3>
+        <p>Automatically indexes every prompt in long 50+ turn chats. Click any entry to smoothly teleport right to that message.</p>
+      </div>
+      <div class="card">
+        <h3>📥 1-Click Markdown Export</h3>
+        <p>Export entire multi-turn AI conversations into clean, structured Markdown formatted for Obsidian, Notion, and Logseq.</p>
+      </div>
+      <div class="card">
+        <h3>💻 Centralized Code Hub</h3>
+        <p>Collects all Python, TypeScript, Go, SQL, and Bash blocks from the thread into one drawer with 1-click batch copy.</p>
+      </div>
+      <div class="card">
+        <h3>🔒 100% Privacy-First</h3>
+        <p>Zero backend servers, zero tracking, zero external network requests. Everything runs locally inside your browser DOM.</p>
+      </div>
+    </div>
+
+    <div class="pricing">
+      <div>
+        <h2>Simple Lifetime Pricing — $3.00 One-Time</h2>
+        <p>Outline navigation &amp; filtering are free forever. Upgrade once for $3.00 USD to unlock Markdown Export &amp; Unlimited Code Hub forever.</p>
+      </div>
+      <a class="btn btn-pro" href="https://lusam.gumroad.com/l/chatoutline" target="_blank" rel="noopener">Get Pro License ($3.00) →</a>
+    </div>
+
+    <footer>
+      <span>ChatOutline Pro © 2026 Sam Lu • Open Core under MIT</span>
+      <span>
+        <a href="https://github.com/SamLu574/chatoutline-pro">GitHub</a> ·
+        <a href="https://microsoftedge.microsoft.com/addons/detail/mmnmfeljpmjdpmpbelhnebldimmoaokb">Edge Add-ons</a> ·
+        <a href="https://lusam.gumroad.com/l/chatoutline">Gumroad</a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>
